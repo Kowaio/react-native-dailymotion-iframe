@@ -30,6 +30,7 @@ const parsedUrl = new URL(window.location.href);
 const UrlQueryData = parsedUrl.searchParams.get("data");
 const payload = JSON.parse(UrlQueryData);
 const videoId_s = payload.videoId_s;
+const autoplay_s = payload.autoplay_s;
 
  function sendMessageToRN(e) {
     window.ReactNativeWebView.postMessage(JSON.stringify(e))
@@ -41,6 +42,7 @@ var player = DM.player(document.getElementById("player"),{
     height: "100%",
     params: {
         "ui-highlight": "fff",
+        autoplay: autoplay_s,
         logo : true,
         "queue-autoplay-next": false,
         fullscreen: true,
